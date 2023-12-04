@@ -9,6 +9,10 @@ const app = express()
 // Mandar info en formato JSON
 app.use(express.json())
 
+// Se crea una ruta por Post
+app.post('/register', (req, res) => {
+    console.log(req.body)
+})
 
 /*
 // Crear la ruta
@@ -26,6 +30,8 @@ app.use((req, res) => {  // Cuando se usa "use" significa que se esta usando un 
     res.send("404 - Not Found")  // El orden es importante por lo tanto el "use" siempre debe estar al final despues de los get
 })
 
+*/
+
 // Iniciar el servidor en el puerto 3000
 app.listen(3000)
-console.log("Web Server Ejecutandose en el puerto 3000")*/
+console.log("Web Server Ejecutandose en el puerto 3000")
