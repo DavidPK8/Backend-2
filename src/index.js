@@ -1,11 +1,37 @@
 // Creacion de un web server en Express
 
 // Invocar la libreria de express
-const express = require('express')
+//COMMONJS
+const express = require('express') 
+const {engine} = require('express-handlebars')
+
+/*import { engine } from 'express-handlebars' // ESMODULES*/
 
 // Crear una instancia
 const app = express()
 
+// Utilizar un motor de plantillas
+app.engine('handlebars', engine());
+
+// Extension de la pagina
+app.set('view engine', 'handlebars');
+
+// Ubicacion del directorio views
+app.set('views', './src/views');
+
+app.get('/hamburguesa/vegana', (req, res) =>{
+    res.render('home')
+})
+
+app.get('/hamburguesa/contactos', (req, res) =>{
+    res.render('contactos')
+})
+
+app.get('/hamburguesa/about', (req, res) =>{
+    res.render('about')
+})
+
+/*
 // Mandar texto
 app.get('/hamburguesa/simple', (req, res) =>{
     res.send("Hamburguesa - simple")
@@ -33,7 +59,7 @@ app.get('/hamburguesa/mixta', (req, res) =>{
         "tipo": "Mixta",
         "extra": "No"
     })
-})
+})*/
 
 
 /*
