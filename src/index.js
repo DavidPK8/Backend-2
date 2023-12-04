@@ -6,6 +6,9 @@ const express = require('express')
 // Crear una instancia
 const app = express()
 
+// Mandar info en formato JSON
+app.use(express.json())
+
 // Crear la ruta
 app.get('/', (req, res) =>{
     res.send("Bienvenidos")
