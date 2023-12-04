@@ -9,6 +9,8 @@ const app = express()
 // Mandar info en formato JSON
 app.use(express.json())
 
+
+/*
 // Crear la ruta
 app.get('/', (req, res) =>{
     res.send("Bienvenidos")
@@ -26,4 +28,4 @@ app.use((req, res) => {  // Cuando se usa "use" significa que se esta usando un 
 
 // Iniciar el servidor en el puerto 3000
 app.listen(3000)
-console.log("Web Server Ejecutandose en el puerto 3000")
+console.log("Web Server Ejecutandose en el puerto 3000")*/
