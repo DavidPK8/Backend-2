@@ -21,7 +21,9 @@ app.get('/dashboard', (req, res) =>{
 app.get('/about', (req, res) =>{ 
     res.send("Sobre nosotros")
 })
-
+app.get('/contact', (req, res) =>{ 
+    res.send("Contactos")
+})
 
 /*
 RUTAS PUBLICAS Y PRIVADAS
