@@ -10,6 +10,16 @@ const app = express()
 app.listen(3000)
 console.log("Web Server Ejecutandose en el puerto 3000")
 
+app.get('/', (req, res) =>{ 
+    res.send("Landing page")
+})
+
+app.get('/dashboard', (req, res) =>{ 
+    res.send("Bienvenido, Usuario")
+})
+
+/*
+RUTAS PUBLICAS Y PRIVADAS
 app.use(express.json())
 
 app.get('/entrada', (req, res) => { // Rutas publicas
@@ -29,6 +39,7 @@ app.use((req, res, next) =>{
 app.get('/pedido', (req, res) =>{ // Rutas privadas
     res.send(`Bienvenido, ${req.body.email} listo para tomar su orden`)
 })
+*/
 
 /*
 REPASO
