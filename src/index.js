@@ -1,11 +1,63 @@
 // Creacion de un web server en Express
 
 // Invocar la libreria de express
+const express = require('express') 
+
+// Crear una instancia
+const app = express()
+
+// Iniciar el servidor en el puerto 3000
+app.listen(3000)
+console.log("Web Server Ejecutandose en el puerto 3000")
+
+app.use(express.json())
+
+app.get('/entrada', (req, res) => { // Rutas publicas
+   res.send("Entrada al local")
+})
+
+// CREAR UN MIDDLEWARE - Se crea para que unicamente los usuarios registrados puedan acceder a una ruta privada
+app.use((req, res, next) =>{
+    const {email, password} = req.body
+    if(email == "David@gmail.com" && password == 12345){
+        next() // Permita que puedas acceder a la ruta privada
+    }else{
+        res.send("Usuario no registrado") // No permite el acceso a la ruta privada
+    }
+})
+
+app.get('/pedido', (req, res) =>{ // Rutas privadas
+    res.send(`Bienvenido, ${req.body.email} listo para tomar su orden`)
+})
+
+/*
+REPASO
+const port = 3000
+
+app.get('/', (req, res) => {
+    // REQUEST DE LA PETICION - CLIENTE
+    req.body
+    req.params
+    req.query
+    // RESPONDER AL USUARIO DESDE EL SERVIDOR
+    res.send()
+    res.sendFile()
+    res.json()
+    res.render()
+})
+
+app.listen(port, () =>{
+    console.log(`Example app listening on port ${port}`)
+})
+/*
+
+/*
+USO DE HANDLEBARS
 //COMMONJS
 const express = require('express') 
 const {engine} = require('express-handlebars')
 
-/*import { engine } from 'express-handlebars' // ESMODULES*/
+import { engine } from 'express-handlebars' // ESMODULES
 
 // Crear una instancia
 const app = express()
@@ -30,6 +82,7 @@ app.get('/hamburguesa/contactos', (req, res) =>{
 app.get('/hamburguesa/about', (req, res) =>{
     res.render('about')
 })
+*/
 
 /*
 // Mandar texto
@@ -116,6 +169,3 @@ app.use((req, res) => {  // Cuando se usa "use" significa que se esta usando un 
 
 */
 
-// Iniciar el servidor en el puerto 3000
-app.listen(3000)
-console.log("Web Server Ejecutandose en el puerto 3000")
