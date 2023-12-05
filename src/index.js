@@ -18,6 +18,10 @@ app.get('/dashboard', (req, res) =>{
     res.send("Bienvenido, Usuario")
 })
 
+app.get('/about', (req, res) =>{ 
+    res.send("Sobre nosotros")
+})
+
 /*
 RUTAS PUBLICAS Y PRIVADAS
 app.use(express.json())
