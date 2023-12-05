@@ -22,6 +22,7 @@ app.get('/about', (req, res) =>{
     res.send("Sobre nosotros")
 })
 
+
 /*
 RUTAS PUBLICAS Y PRIVADAS
 app.use(express.json())
